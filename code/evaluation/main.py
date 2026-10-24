@@ -17,6 +17,10 @@ import sys
 from collections import defaultdict
 from pathlib import Path
 
+repo_root = Path(__file__).resolve().parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
+
 def parse_args():
     parser = argparse.ArgumentParser(description="Evaluate Ghost Data Still Exists predictions")
     parser.add_argument("--pred", type=str, default="dataset/sample_output.csv", help="Path to predictions CSV")
